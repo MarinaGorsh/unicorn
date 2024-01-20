@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page_title %}AI Profile | Home{% endblock %}
+
+{% block body %}
+<nav>
+    {% if user.is_authenticated %}
+    <span>Hi, {{ user.username }}!</span> <a href="#">My Profile</a> | <a href="{% url 'logout' %}">Log out</a>
+    {% else %}
+    <span>Welcome to AI Profile! </span> <a href="{% url 'login' %}">Log in</a> | <a href="{% url 'signup' %}">Sign
+        up</a>
+    {% endif %}
+</nav>
+{% endblock body %}
