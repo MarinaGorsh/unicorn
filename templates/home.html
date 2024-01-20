@@ -5,7 +5,8 @@
 {% block body %}
 <nav>
     {% if user.is_authenticated %}
-    <span>Hi, {{ user.username }}!</span> <a href="#">My Profile</a> | <a href="{% url 'logout' %}">Log out</a>
+    <span>Hi, {{ user.username }}!</span> <a href="#">My Profile</a> | <a href="{% url 'logout' %}">Log out</a> | <a
+        href="{% url 'password_change' %}">Change password</a>
     {% else %}
     <span>Welcome to AI Profile! </span> <a href="{% url 'login' %}">Log in</a> | <a href="{% url 'signup' %}">Sign
         up</a>
