@@ -1,6 +1,6 @@
 # AI Unicorn 🦄
 
-An AI-powered service to create and share web portfolios.
+An AI-powered service to create and share web resumes.
 
 
 ## Initial Setup ⚙
