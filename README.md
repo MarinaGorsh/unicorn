@@ -10,7 +10,7 @@ An AI-powered service to create and share web resumes.
 git clone https://github.com/AlexYelisieiev/ai-unicorn
 
 # Switch to the created directory
-cd ai-portfolio
+cd ai-unicorn
 
 # Create a virtual environment
 python -m venv venv
