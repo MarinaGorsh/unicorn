@@ -1,9 +1,9 @@
-# AI Unicorn
+# AI Unicorn 🦄
 
 An AI-powered service to create and share web portfolios.
 
 
-## Initial Setup
+## Initial Setup ⚙
 
 ```pwsh
 # Clone the repository
