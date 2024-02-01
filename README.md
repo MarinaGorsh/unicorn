@@ -7,7 +7,7 @@ An AI-powered service to create and share web portfolios.
 
 ```pwsh
 # Clone the repository
-git clone https://github.com/AlexYelisieiev/ai-portfolio
+git clone https://github.com/AlexYelisieiev/ai-unicorn
 
 # Switch to the created directory
 cd ai-portfolio
