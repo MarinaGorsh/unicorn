@@ -29,5 +29,5 @@ After the initial setup completed, you can run the server with:
 venv\scripts\activate
 
 # Run server
-python mnage.py runserver
+python manage.py runserver
 ```
