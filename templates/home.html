@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block page_title %}AI Profile | Home{% endblock %}
+{% block page_title %}Unicorn | Home{% endblock %}
 
 {% block body %}
 <nav>
@@ -11,7 +11,7 @@
         info</a> | <a href="{% url 'user_change_profile_picture' user.username %}">Change profile picture</a> | <a
         href="{% url 'user_detail' user.username %}">My web resume</a>
     {% else %}
-    <span>Welcome to AI Profile! </span> <a href="{% url 'login' %}">Log in</a> | <a href="{% url 'signup' %}">Sign
+    <span>Welcome to Unicorn AI! </span> <a href="{% url 'login' %}">Log in</a> | <a href="{% url 'signup' %}">Sign
         up</a>
     {% endif %}
 </nav>
