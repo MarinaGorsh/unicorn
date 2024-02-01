@@ -23,6 +23,7 @@ python manage.py runserver
 ```
 
 You won't have to run `git clone https://github.com/AlexYelisieiev/ai-portfolio`, `cd ai-portfolio`, `python -m venv venv`, and `pip install -r requirements.txt` next time.
+
 After the initial setup completed, you can run the server with:
 ```pwsh
 # Activate the virtual environment
