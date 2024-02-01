@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block page_title %}AI Profile | Signup{% endblock %}
+{% block page_title %}AI Profile | Change info{% endblock %}
 
 {% block body %}
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign up</button>
+    <button type="submit">Change info</button>
 </form>
 {% endblock body %}

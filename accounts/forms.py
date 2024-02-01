@@ -6,11 +6,19 @@ from .models import CustomUser
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model = CustomUser
-        fields = ["username", "email"]
+        model = get_user_model()
+        fields = ["username", "name", "email"]
 
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
-        model = CustomUser
-        fields = UserChangeForm.Meta.fields
+        model = get_user_model()
+        fields = [
+            "profile_picture",
+            "name",
+            "email",
+            "job_title",
+            "skills",
+            "about",
+            "experience",
+        ]

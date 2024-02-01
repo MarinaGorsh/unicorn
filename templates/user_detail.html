@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Profile | user.name{% endblock %}
+
+{% block body %}
+<div>
+    <img src="{{ object.profile_picture.url }}" alt="User profile picture">
+</div>
+<div>
+    <span>Name: {{ object.name }}</span>
+</div>
+<div>
+    <span>Username: {{ object.username }}</span>
+</div>
+<div>
+    <span>Email: {{ object.email }}</span>
+</div>
+<div>
+    <span>Job title: {{ object.job_title }}</span>
+</div>
+<div>
+    <span>Skills: {{ object.skills }}</span>
+</div>
+<div>
+    <span>About: {{ object.about }}</span>
+</div>
+<div>
+    <span>Experience: {{ object.experience }}</span>
+</div>
+{% endblock body %}

@@ -6,10 +6,14 @@ from .models import CustomUser
 
 
 # Register your models here.
+@admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = CustomUser
+    list_display = ["username", "name", "email"]
 
-
-admin.site.register(CustomUser, CustomUserAdmin)
+    fieldsets = (
+        ("Basic Info", {"fields": ("username", "name", "email")}),
+        ("Profile Picture", {"fields": ("profile_picture",)}),
+    )
