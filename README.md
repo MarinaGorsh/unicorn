@@ -15,6 +15,9 @@ cd ai-unicorn
 # Create a virtual environment
 python -m venv venv
 
+# Activate the virtual environment
+venv\scripts\activate
+
 # Install the requirements
 pip install -r requirements.txt
 
