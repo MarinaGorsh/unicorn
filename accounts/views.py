@@ -23,6 +23,7 @@ class CustomUserChangeView(UpdateView):
         "name",
         "job_title",
         "skills",
+        "languages",
         "about",
         "experience",
     ]
