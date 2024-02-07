@@ -11,6 +11,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField()
     job_title = models.TextField(default="", null=False, blank=False)
     skills = models.TextField(default="", null=False, blank=False)
+    languages = models.TextField(default="", null=False, blank=False)
     about = models.TextField(default="", null=False, blank=False)
     experience = models.TextField(default="", null=False, blank=False)
 
