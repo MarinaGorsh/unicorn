@@ -21,6 +21,9 @@ venv\scripts\activate
 # Install the requirements
 pip install -r requirements.txt
 
+# Create a database
+python manage.py migrate
+
 # Run server
 python manage.py runserver
 ```
