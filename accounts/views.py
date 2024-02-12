@@ -20,15 +20,7 @@ class SignUpView(CreateView):
 class CustomUserChangeView(UpdateView):
     model = CustomUser
     template_name = "user_change.html"
-    fields = [
-        "name",
-        "job_title",
-        "skills",
-        "languages",
-        "about",
-        "experience",
-        "let_anon_users_see_resume",
-    ]
+    fields = ["name"]
 
     def get_object(self) -> Model:
         return CustomUser.objects.get(username=self.kwargs["username"])

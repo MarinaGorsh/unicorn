@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Unicorn | Resume detail{% endblock title %}
+
+{% block body %}
+<p>Owner: {{object.owner}}</p>
+<p>Job title: {{object.job_title}}</p>
+<p>Skills: {{object.skills}}</p>
+<p>Languages: {{object.languages}}</p>
+<p>About: {{object.about}}</p>
+<p>Experience: {{object.experience}}</p>
+{% endblock body %}
