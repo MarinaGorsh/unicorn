@@ -28,7 +28,7 @@ urlpatterns = [
     # Local apps
     path("accounts/", include("accounts.urls")),
     path("", include("pages.urls")),
-    path("resumes", include("resumes.urls")),
+    path("resumes/", include("resumes.urls")),
 ]
 
 if settings.DEBUG:

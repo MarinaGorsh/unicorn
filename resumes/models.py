@@ -1,11 +1,10 @@
-from audioop import reverse
+from django.urls import reverse
 from django.db import models
-from accounts.models import CustomUser
 
 
 # Create your models here.
 class Resume(models.Model):
-    owner = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    owner = models.OneToOneField("accounts.CustomUser", on_delete=models.CASCADE)
     job_title = models.TextField(default="", null=False, blank=False)
     skills = models.TextField(default="", null=False, blank=False)
     languages = models.TextField(default="", null=False, blank=False)
@@ -17,4 +16,4 @@ class Resume(models.Model):
         return self.job_title
 
     def get_absolute_url(self) -> str:
-        return reverse("resume_detail", kwargs={"username": self.owner})
+        return reverse("resume_detail", kwargs={"username": self.owner.username})

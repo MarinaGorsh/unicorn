@@ -22,7 +22,7 @@ class CustomUserChangeView(UpdateView):
     template_name = "user_change.html"
     fields = ["name"]
 
-    def get_object(self) -> Model:
+    def get_object(self, queryset) -> Model:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
 
@@ -31,7 +31,7 @@ class ProfilePictureChangeView(UpdateView):
     template_name = "change_profile_picture.html"
     fields = ["profile_picture"]
 
-    def get_object(self) -> Model:
+    def get_object(self, queryset) -> Model:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
 
@@ -39,7 +39,7 @@ class CustomUserDetailView(UserPassesTestMixin, DetailView):
     model = CustomUser
     template_name = "user_detail.html"
 
-    def get_object(self) -> Model:
+    def get_object(self, queryset) -> Model:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
     # Check if user is allowed to view resume
