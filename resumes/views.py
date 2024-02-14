@@ -38,6 +38,6 @@ class ResumeDetailView(DetailView):
     template_name = "resume_detail.html"
 
     def get_object(self, queryset=None) -> Model:
-        if queryset is None:
+        if not queryset:
             queryset = super().get_queryset()
         return queryset.get(owner__username=self.kwargs["username"])
