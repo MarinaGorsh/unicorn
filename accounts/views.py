@@ -17,29 +17,21 @@ class SignUpView(CreateView):
     success_url = reverse_lazy("home")
 
 
-class CustomUserChangeView(UpdateView):
+class CustomUserUpdateView(UpdateView):
     model = CustomUser
-    template_name = "user_change.html"
-    fields = [
-        "name",
-        "job_title",
-        "skills",
-        "languages",
-        "about",
-        "experience",
-        "let_anon_users_see_resume",
-    ]
+    template_name = "user_update.html"
+    fields = ["name"]
 
-    def get_object(self) -> Model:
+    def get_object(self, queryset=None) -> CustomUser:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
 
-class ProfilePictureChangeView(UpdateView):
+class ProfilePictureUpdateView(UpdateView):
     model = CustomUser
-    template_name = "change_profile_picture.html"
+    template_name = "update_profile_picture.html"
     fields = ["profile_picture"]
 
-    def get_object(self) -> Model:
+    def get_object(self, queryset=None) -> CustomUser:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
 
@@ -47,7 +39,7 @@ class CustomUserDetailView(UserPassesTestMixin, DetailView):
     model = CustomUser
     template_name = "user_detail.html"
 
-    def get_object(self) -> Model:
+    def get_object(self, queryset=None) -> CustomUser:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
     # Check if user is allowed to view resume

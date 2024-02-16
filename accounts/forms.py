@@ -17,8 +17,4 @@ class CustomUserChangeForm(UserChangeForm):
             "profile_picture",
             "name",
             "email",
-            "job_title",
-            "skills",
-            "about",
-            "experience",
         ]

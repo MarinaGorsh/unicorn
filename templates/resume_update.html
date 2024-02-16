@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Unicorn | Update resume{% endblock title %}
+
+{% block body %}
+<a href="{% url 'home' %}">Home</a>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update resume</button>
+</form>
+{% endblock body %}

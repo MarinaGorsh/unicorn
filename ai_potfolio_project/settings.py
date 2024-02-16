@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Local apps
     "pages.apps.PagesConfig",
     "accounts.apps.AccountsConfig",
+    "resumes.apps.ResumesConfig",
     # Cleanup
     "django_cleanup.apps.CleanupConfig",
 ]
