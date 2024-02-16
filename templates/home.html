@@ -10,8 +10,11 @@
         out</a>
     | <a href="{% url 'password_change' %}">Change password</a> | <a href="{% url 'user_change' user.username %}">Update
         info</a> | <a href="{% url 'user_change_profile_picture' user.username %}">Change profile picture</a> |
-    <!-- TODO: continue from here -->
-    <a href="{% url 'resume_create' %}">Create web resume</a>
+    {% if not user.has_resume %}
+    <a href="{% url 'resume_create' user.username %}">Create web resume</a>
+    {% else %}
+    <a href="{% url 'resume_update' user.username %}">Update resume</a>
+    {% endif %}
     {% else %}
     <span>Welcome to Unicorn AI! </span> <a href="{% url 'login' %}">Log in</a> | <a href="{% url 'signup' %}">Sign
         up</a>

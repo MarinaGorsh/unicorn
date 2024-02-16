@@ -3,6 +3,7 @@
 {% block title %}Unicorn | user.name{% endblock %}
 
 {% block body %}
+<a href="{% url 'home' %}">Home</a>
 <div>
     <img src="{{ object.profile_picture.url }}" alt="User profile picture">
 </div>

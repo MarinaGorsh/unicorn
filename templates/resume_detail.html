@@ -3,7 +3,11 @@
 {% block title %}Unicorn | Resume detail{% endblock title %}
 
 {% block body %}
-<p>Owner: {{object.owner}}</p>
+<a href="{% url 'home' %}">Home</a>
+<p><img src="{{ object.owner.profile_picture.url }}" alt=""></p>
+<p>Name: {{object.owner.name}}</p>
+<p>Username: {{object.owner.username}}</p>
+<p>Email: {{object.owner.email}}</p>
 <p>Job title: {{object.job_title}}</p>
 <p>Skills: {{object.skills}}</p>
 <p>Languages: {{object.languages}}</p>

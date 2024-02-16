@@ -3,6 +3,7 @@
 {% block page_title %}Unicorn | Change info{% endblock %}
 
 {% block body %}
+<a href="{% url 'home' %}">Home</a>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
