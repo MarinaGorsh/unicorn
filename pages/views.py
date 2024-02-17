@@ -25,15 +25,12 @@ class HomeView(View):
 
         # Check if submitted form is valid
         if not submitted_form.is_valid():
-            print("Not valid")
-            return HttpResponseBadRequest()
+            return redirect("home")
 
         if "username" in submitted_form.cleaned_data:
             searched_username = submitted_form.cleaned_data["username"]
         else:
-            print("No username")
-            print(submitted_form.cleaned_data)
-            return HttpResponseBadRequest()
+            return redirect("home")
 
         # Show searched user if exists
         if (
@@ -43,4 +40,4 @@ class HomeView(View):
         ):
             return redirect("user_details", searched_username)
         else:
-            return HttpResponseNotFound()
+            return redirect("user_not_found")

@@ -4,7 +4,7 @@ from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView, TemplateView
 from django.contrib.auth.mixins import UserPassesTestMixin
 from .forms import CustomUserCreationForm
 from .models import CustomUser
@@ -50,3 +50,7 @@ class CustomUserDetailView(UserPassesTestMixin, DetailView):
                 username=self.kwargs["username"]
             ).let_anon_users_see_resume
         )
+
+
+class UserNotFoundView(TemplateView):
+    template_name = "user_not_found.html"

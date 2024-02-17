@@ -4,6 +4,7 @@ from .views import (
     SignUpView,
     CustomUserDetailView,
     ProfilePictureUpdateView,
+    UserNotFoundView,
 )
 
 
@@ -18,4 +19,5 @@ urlpatterns = [
         name="user_change_profile_picture",
     ),
     path("details/<str:username>", CustomUserDetailView.as_view(), name="user_details"),
+    path("not-found/", UserNotFoundView.as_view(), name="user_not_found"),
 ]
