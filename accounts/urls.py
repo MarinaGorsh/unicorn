@@ -17,5 +17,5 @@ urlpatterns = [
         ProfilePictureUpdateView.as_view(),
         name="user_change_profile_picture",
     ),
-    path("details/<str:username>", CustomUserDetailView.as_view(), name="user_detail"),
+    path("details/<str:username>", CustomUserDetailView.as_view(), name="user_details"),
 ]

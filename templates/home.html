@@ -20,4 +20,10 @@
         up</a>
     {% endif %}
 </nav>
+<p>Find someone's resume:</p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ user_search_form.as_p }}
+    <button type="submit">Search</button>
+</form>
 {% endblock body %}
