@@ -4,9 +4,11 @@
 
 {% block body %}
 <a href="{% url 'home' %}">Home</a>
+{% if object.profile_picture %}
 <div>
     <img src="{{ object.profile_picture.url }}" alt="User profile picture">
 </div>
+{% endif %}
 <div>
     <span>Name: {{ object.name }}</span>
 </div>

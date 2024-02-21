@@ -1,11 +1,13 @@
 from typing import Any
+from django.apps import apps
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView, TemplateView
 from .models import Resume
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -35,14 +37,27 @@ class ResumeCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return super().form_valid(form)
 
 
-class ResumeDetailView(DetailView):
+class ResumeDetailView(UserPassesTestMixin, DetailView):
     model = Resume
     template_name = "resume_detail.html"
 
-    def get_object(self, queryset=None) -> Resume:
-        if not queryset:
-            queryset = super().get_queryset()
-        return queryset.get(owner__username=self.kwargs["username"])
+    def test_func(self) -> bool:
+        """
+        Checks if user is either authentificated or is let to view anonymously
+        """
+
+        return (
+            self.request.user.is_authenticated
+            or Resume.objects.get(
+                owner__username=self.kwargs["username"]
+            ).let_anon_users_see_resume
+        )
+
+    def handle_no_permission(self) -> HttpResponseRedirect:
+        return redirect("resume_access_forbidden")
+
+    def get_object(self) -> Resume:
+        return Resume.objects.get(owner__username=self.kwargs["username"])
 
 
 class ResumeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -65,7 +80,7 @@ class ResumeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self) -> bool:
         # Check if resume exists
-        if not Resume.objects.filter(owner__username=self.kwargs["username"]):
+        if not Resume.objects.filter(owner__username=self.kwargs["username"]).exists():
             return False
 
         # Check if user is the owner
@@ -73,3 +88,7 @@ class ResumeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             self.request.user
             == Resume.objects.get(owner__username=self.kwargs["username"]).owner
         )
+
+
+class ResumeAccessForbidden(TemplateView):
+    template_name = "resume_access_forbidden.html"

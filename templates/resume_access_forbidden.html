@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}You can't view this resume{% endblock title %}
+
+{% block body %}
+<p>Sorry, the owner restricted access to their resume</p>
+<a href="{% url 'home' %}">Home</a>
+{% endblock body %}
