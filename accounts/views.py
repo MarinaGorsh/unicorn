@@ -1,10 +1,11 @@
-import email
 from typing import Any
+from django.apps import apps
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView, DetailView, TemplateView
 from django.contrib.auth.mixins import UserPassesTestMixin
 from .forms import CustomUserCreationForm
 from .models import CustomUser
@@ -37,16 +38,15 @@ class ProfilePictureUpdateView(UpdateView):
 
 class CustomUserDetailView(UserPassesTestMixin, DetailView):
     model = CustomUser
-    template_name = "user_detail.html"
+    template_name = "user_details.html"
 
     def get_object(self, queryset=None) -> CustomUser:
         return CustomUser.objects.get(username=self.kwargs["username"])
 
-    # Check if user is allowed to view resume
+    # Check if searched user exists
     def test_func(self) -> bool:
-        return bool(
-            self.request.user.is_authenticated
-            or CustomUser.objects.get(
-                username=self.kwargs["username"]
-            ).let_anon_users_see_resume
-        )
+        return CustomUser.objects.filter(username=self.kwargs["username"]).exists()
+
+
+class UserNotFoundView(TemplateView):
+    template_name = "user_not_found.html"

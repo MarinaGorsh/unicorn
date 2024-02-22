@@ -16,4 +16,4 @@ class Resume(models.Model):
         return self.job_title
 
     def get_absolute_url(self) -> str:
-        return reverse("resume_detail", kwargs={"username": self.owner.username})
+        return reverse("resume_details", kwargs={"username": self.owner.username})
