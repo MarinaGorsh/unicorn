@@ -9,11 +9,11 @@ from .views import (
 
 urlpatterns = [
     path("create/<str:username>", ResumeCreateView.as_view(), name="resume_create"),
-    path("details/<str:username>", ResumeDetailView.as_view(), name="resume_detail"),
     path(
         "details/access-forbidden",
         ResumeAccessForbidden.as_view(),
         name="resume_access_forbidden",
     ),
+    path("details/<str:username>", ResumeDetailView.as_view(), name="resume_details"),
     path("update/<str:username>", ResumeUpdateView.as_view(), name="resume_update"),
 ]

@@ -39,7 +39,7 @@ class ResumeCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 class ResumeDetailView(UserPassesTestMixin, DetailView):
     model = Resume
-    template_name = "resume_detail.html"
+    template_name = "resume_details.html"
 
     def test_func(self) -> bool:
         """

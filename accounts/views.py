@@ -38,7 +38,7 @@ class ProfilePictureUpdateView(UpdateView):
 
 class CustomUserDetailView(UserPassesTestMixin, DetailView):
     model = CustomUser
-    template_name = "user_detail.html"
+    template_name = "user_details.html"
 
     def get_object(self, queryset=None) -> CustomUser:
         return CustomUser.objects.get(username=self.kwargs["username"])
