@@ -1,4 +1,4 @@
-# AI Unicorn 🦄
+# Unicorn AI 🦄
 
 An AI-powered service to create and share web resumes.
 
