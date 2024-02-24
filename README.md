@@ -7,10 +7,10 @@ An AI-powered service to create and share web resumes.
 
 ```pwsh
 # Clone the repository
-git clone https://github.com/AlexYelisieiev/ai-unicorn
+git clone https://github.com/AlexYelisieiev/unicorn-ai
 
 # Switch to the created directory
-cd ai-unicorn
+cd unicorn-ai
 
 # Create a virtual environment
 python -m venv venv
@@ -28,7 +28,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-You won't have to run `git clone https://github.com/AlexYelisieiev/ai-unicorn`, `cd ai-unicorn`, `python -m venv venv`, `python manage.py migrate`, and `pip install -r requirements.txt` next time.
+You won't have to run `git clone https://github.com/AlexYelisieiev/unicorn-ai`, `cd unicorn-ai`, `python -m venv venv`, `python manage.py migrate`, and `pip install -r requirements.txt` next time.
 
 After the initial setup completed, you can run the server with:
 ```pwsh
