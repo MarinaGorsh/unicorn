@@ -1,6 +1,6 @@
 # Unicorn AI 🦄
 
-An AI-powered service to create and share web resumes.
+An AI-powered service to create, share, and interact with web resumes.
 
 
 ## Initial Setup ⚙
@@ -30,7 +30,9 @@ python manage.py runserver
 
 You won't have to run `git clone https://github.com/AlexYelisieiev/unicorn-ai`, `cd unicorn-ai`, `python -m venv venv`, `python manage.py migrate`, and `pip install -r requirements.txt` next time.
 
-After the initial setup completed, you can run the server with:
+
+## Future usage 💻
+
 ```pwsh
 # Activate the virtual environment
 venv\scripts\activate
